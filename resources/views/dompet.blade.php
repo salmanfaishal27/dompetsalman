@@ -96,18 +96,20 @@
             <div class="d-flex">
                 <h1 class="me-auto p-2 bd-highlight">Dompet</h1>
                 <div class="d-flex flex-row-reverse" role="group" aria-label="Basic example">
+
                     <div class="btn-group">
-                        <a><button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Action
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Semua</a></li>
-                                <li><a class="dropdown-item" href="#">Aktif</a></li>
-                                <li><a class="dropdown-item" href="#">Tidak Aktif</a></li>
-                            </ul>
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Action
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Semua</a></li>
+                            <li><a class="dropdown-item" href="#">Aktif</a></li>
+                            <li><a class="dropdown-item" href="#">Tidak Aktif</a></li>
+                        </ul>
                     </div>
-                    </a>
+
+
                     <a href="keloladompet"><button type="button" class="btn btn-primary">Buat Baru</button></a>
                 </div>
             </div>

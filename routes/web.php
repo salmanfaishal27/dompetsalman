@@ -35,3 +35,6 @@ Route::get('/laporantransaksi', function(){
 Route::get('/keloladompet', function(){
     return view('keloladompet');
 });
+Route::get('/kelolakategori', function(){
+    return view('kelolakategori');
+});
