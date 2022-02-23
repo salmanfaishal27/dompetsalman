@@ -44,3 +44,6 @@ Route::get('/dompetmasukbb',function(){
 Route::get('/dompetkeluarbb',function(){
     return view('dompetkeluarbb');
 });
+Route::get('/result', function() {
+    return view('result');
+});
