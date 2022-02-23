@@ -103,14 +103,14 @@
                             Action
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Semua</a></li>
-                            <li><a class="dropdown-item" href="#">Aktif</a></li>
-                            <li><a class="dropdown-item" href="#">Tidak Aktif</a></li>
+                            <li><a class="dropdown-item" href="#">Semua ({{ $countdatas }})</a></li>
+                            <li><a class="dropdown-item" href="#">Aktif ({{ $countdatas2 }})</a></li>
+                            <li><a class="dropdown-item" href="#">Tidak Aktif ({{ $countdatas2 }})</a></li>
                         </ul>
                     </div>
 
-
-                    <a href="keloladompet"><button type="button" class="btn btn-primary">Buat Baru</button></a>
+                    <button type="button" class="btn btn-primary"><a href="keloladompet" style="color: white">Buat
+                            Baru</a></button>
                 </div>
             </div>
             <nav>
@@ -141,75 +141,53 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Dompet Utama</td>
-                                        <td>52700234556</td>
-                                        <td>Bank BCA</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-primary dropdown-toggle"
-                                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                                </button>
-                                                <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item" href="#">Dompet Utama</a></li>
-                                                    <li>
-                                                        <hr class="dropdown-divider">
-                                                    </li>
-                                                    <li><a class="dropdown-item" href="#">Detail</a></li>
-                                                    <li><a class="dropdown-item" href="#">Ubah</a></li>
-                                                    <li><a class="dropdown-item" href="#">Tidak Aktif</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Dompet Tagihan</td>
-                                        <td>527002345123</td>
-                                        <td>Bank BCA</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-primary dropdown-toggle"
-                                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                                </button>
-                                                <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item" href="#">Dompet Utama</a></li>
-                                                    <li>
-                                                        <hr class="dropdown-divider">
-                                                    </li>
-                                                    <li><a class="dropdown-item" href="#">Detail</a></li>
-                                                    <li><a class="dropdown-item" href="#">Ubah</a></li>
-                                                    <li><a class="dropdown-item" href="#">Tidak Aktif</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Dompet Cadangan</td>
-                                        <td>52700234567</td>
-                                        <td>Bank Permata</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-primary dropdown-toggle"
-                                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                                </button>
-                                                <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item" href="#">Dompet Utama</a></li>
-                                                    <li>
-                                                        <hr class="dropdown-divider">
-                                                    </li>
-                                                    <li><a class="dropdown-item" href="#">Detail</a></li>
-                                                    <li><a class="dropdown-item" href="#">Ubah</a></li>
-                                                    <li><a class="dropdown-item" href="#">Tidak Aktif</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    @foreach ($datas as $data)
+                                        <tr>
+                                            <th scope="row">{{ $no++ }}</th>
+                                            <td>{{ $data->Nama }}</td>
+                                            <td>{{ $data->Referensi }}</td>
+                                            <td>{{ $data->Deskripsi }}</td>
+                                            @foreach ($datas2 as $data2)
+                                                @if ($data->Status_ID == $data2->ID)
+                                                    @if ($data2->Data_default == 1)
+                                                        <td>Aktif</td>
+                                                    @elseif($data2->Data_default == 2)
+                                                        <td>Tidak Aktif</td>
+                                                    @else
+                                                        <td>Null</td>
+                                                    @endif
+                                                @endif
+                                            @endforeach
+                                            <td>
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-primary dropdown-toggle"
+                                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="#">{{ $data->Nama }}</a>
+                                                        </li>
+                                                        <li>
+                                                            <hr class="dropdown-divider">
+                                                        </li>
+                                                        <li><a class="dropdown-item"
+                                                                href="detail/{{ $data->ID }}">Detail</a></li>
+                                                        <li><a class="dropdown-item" href="#">Ubah</a></li>
+                                                        <li><a class="dropdown-item" href="#">
+                                                                @foreach ($datas2 as $data2)
+                                                                    @if ($data->Status_ID == $data2->ID)
+                                                                        @if ($data2->Data_default == 1)
+                                                                            Tidak Aktif
+                                                                        @elseif($data2->Data_default == 2)
+                                                                            Aktif
+                                                                        @endif
+                                                                    @endif
+                                                                @endforeach
+                                                            </a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                             <!-- End Table with stripped rows -->

@@ -17,9 +17,8 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/dompet', function(){
-    return view ('dompet');
-});
+Route::get('/dompet', 'DompetController@index');
+
 Route::get('/kategori', function(){
     return view ('kategori');
 });
@@ -47,3 +46,4 @@ Route::get('/dompetkeluarbb',function(){
 Route::get('/result', function() {
     return view('result');
 });
+Route::get('/detail/{id}', 'DompetController@detail');
