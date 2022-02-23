@@ -124,11 +124,6 @@
                                         <label class="mb-2">Nama</label>
                                         <input type="text" class="form-control" placeholder="Nama" aria-label="Nama">
                                     </div>
-                                    <div class="col">
-                                        <label class="mb-2">Referensi</label>
-                                        <input type="text" class="form-control" placeholder="Referensi"
-                                            aria-label="Referensi">
-                                    </div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="floa" class="form-label mt-2">Deskripsi</label>

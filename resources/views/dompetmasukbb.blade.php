@@ -92,63 +92,74 @@
     </aside><!-- End Sidebar-->
 
     <main id="main" class="main">
+
         <div class="pagetitle">
-            <div class="d-flex">
-                <h1 class="me-auto p-2 bd-highlight">Dompet Masuk</h1>
-                <div class="d-flex flex-row-reverse" role="group" aria-label="Basic example">
-                    <a href="dompetmasukbb"><button type="button" class="btn btn-primary">Buat Baru</button></a>
-                </div>
+            <div class="d-flex ">
+                <h1 class="me-auto">Dompet Masuk <p style="font-size: 18px">-buat baru</p>
+                </h1>
+                <a href="dompetmasuk"><button type="button" class="btn btn-primary">Kelola Dompet Masuk</button></a>
             </div>
-        </div>
+
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item">Forms</li>
+                    <li class="breadcrumb-item active">Elements</li>
+                </ol>
+            </nav>
+        </div><!-- End Page Title -->
+
         <section class="section">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-max">
 
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Dompet Masuk</h5>
-                            <!-- Table with stripped rows -->
-                            <table class="table datatable">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">TANGGAL</th>
-                                        <th scope="col">KODE</th>
-                                        <th scope="col">DESKRIPSI</th>
-                                        <th scope="col">KATEGORI</th>
-                                        <th scope="col">NILAI</th>
-                                        <th scope="col">DOMPET</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>2019-03-08</td>
-                                        <td>WIN000000002</td>
-                                        <td>Gaji Bulan Januari</td>
-                                        <td>Pemasukan</td>
-                                        <td>(+)3.500.000</td>
-                                        <td>Dompet Utama</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>2019-03-08</td>
-                                        <td>WIN000000002</td>
-                                        <td>Gaji Bulan Januari</td>
-                                        <td>Pemasukan</td>
-                                        <td>(+)3.500.000</td>
-                                        <td>Dompet Utama</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <!-- End Table with stripped rows -->
+                            <h5 class="card-title">General Form Elements</h5>
+
+                            <!-- General Form Elements -->
+                            <form>
+                                <div class="row">
+                                    <div class="col">
+                                        <label class="mb-2">Nama</label>
+                                        <input type="text" class="form-control" placeholder="Nama" aria-label="Nama">
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="floa" class="form-label mt-2">Deskripsi</label>
+                                    <div class="form-floating">
+                                        <textarea class="form-control" placeholder="Leave a comment here"
+                                            id="floatingTextarea2" style="height: 100px"></textarea>
+                                        <label for="floatingTextarea2">Deskripsi</label>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <label class="mb-2">Select</label>
+                                    <div class="col-sm-3">
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option selected>Status</option>
+                                            <option value="1">Aktif</option>
+                                            <option value="2">Tidak Aktif</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-3 mt-4">
+                                    <div class="col-sm-10">
+                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                    </div>
+                                </div>
+
+                            </form><!-- End General Form Elements -->
 
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
+
+    </main><!-- End #main -->
+
+
     </main>
     @include('partials.footer')
 

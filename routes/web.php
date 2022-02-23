@@ -38,3 +38,6 @@ Route::get('/keloladompet', function(){
 Route::get('/kelolakategori', function(){
     return view('kelolakategori');
 });
+Route::get('/dompetmasukbb',function(){
+    return view('dompetmasukbb');
+});
