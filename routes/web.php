@@ -41,3 +41,6 @@ Route::get('/kelolakategori', function(){
 Route::get('/dompetmasukbb',function(){
     return view('dompetmasukbb');
 });
+Route::get('/dompetkeluarbb',function(){
+    return view('dompetkeluarbb');
+});

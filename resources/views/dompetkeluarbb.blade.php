@@ -95,9 +95,9 @@
 
         <div class="pagetitle">
             <div class="d-flex ">
-                <h1 class="me-auto">Dompet Masuk <p style="font-size: 18px">-buat baru</p>
+                <h1 class="me-auto">Dompet Keluar <p style="font-size: 18px">-buat baru</p>
                 </h1>
-                <a href="dompetmasuk"><button type="button" class="btn btn-primary">Kelola Dompet Masuk</button></a>
+                <a href="dompetmasuk"><button type="button" class="btn btn-primary">Kelola Dompet Keluar</button></a>
             </div>
 
             <nav>
