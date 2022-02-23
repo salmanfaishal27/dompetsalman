@@ -120,20 +120,21 @@
                             <!-- General Form Elements -->
                             <form>
                                 <div class="d-flex justify-content-between">
-                                    <div class="col">
+                                    <div class="col-3">
                                         <label>Kode</label>
-                                        <input type="text" class="form-control" placeholder="WIN00XXXXX"
-                                            aria-label="Kode" disabled>
+                                        <input style="width:300px" type="text" class="form-control"
+                                            placeholder="WOUT00XXXXX" aria-label="Kode" disabled>
                                     </div>
                                     <div class="col">
                                         <label>Tanggal</label>
-                                        <input type="text" class="form-control" placeholder="27-05-1999"
-                                            aria-label="Tanggal" id="disabledInput" disabled>
+                                        <input style="width:300px" for="inputdate" type="date" class="form-control"
+                                            placeholder="27-05-1999" aria-label="Tanggal" id="disabledInput" disabled>
                                     </div>
                                     <div class="row mb-2">
                                         <label class="mb-2">Kategori</label>
-                                        <div class="col-sm-3">
-                                            <select class="form-select" aria-label="Default select example">
+                                        <div class="col-sm-2">
+                                            <select style="width:300px" class="form-select"
+                                                aria-label="Default select example">
                                                 <option selected>Status</option>
                                                 <option value="1">Aktif</option>
                                                 <option value="2">Tidak Aktif</option>
@@ -143,12 +144,26 @@
                                     <div class="row mb-2">
                                         <label class="mb-2">Dompet</label>
                                         <div class="col-sm-3">
-                                            <select class="form-select" aria-label="Default select example">
+                                            <select style="width:300px" class="form-select"
+                                                aria-label="Default select example">
                                                 <option selected>Status</option>
                                                 <option value="1">Aktif</option>
                                                 <option value="2">Tidak Aktif</option>
                                             </select>
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <label>Nilai*</label>
+                                    <input type="number" class="form-control" placeholder="0" aria-label="Kode"
+                                        required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="floa" class="form-label mt-2">Deskripsi*</label>
+                                    <div class="form-floating" required>
+                                        <textarea class="form-control" placeholder="Leave a comment here"
+                                            id="floatingTextarea2" style="height: 100px"></textarea>
+                                        <label for="floatingTextarea2">Deskripsi</label>
                                     </div>
                                 </div>
 
