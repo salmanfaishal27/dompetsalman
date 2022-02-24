@@ -26,7 +26,7 @@ class KategoriController extends Controller
         $datas = DB::table('kategori')->where('ID',$id)->get();
         $datas2 = DB::table('kategori_status')->where('ID',$id)->get();
         $no = 1;
-        return view('detail',['datas' => $datas,'datas2' => $datas2,'no' => $no]);
+        return view('detailkategori',['datas' => $datas,'datas2' => $datas2,'no' => $no]);
     }
     public function insert(Request $request){
         $data = DB::table('kategori')->count();

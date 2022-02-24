@@ -42,12 +42,12 @@
                 </a>
                 <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="/dompet">
+                        <a href="dompet">
                             <i class="bi bi-circle"></i><span>Dompet</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/kategori">
+                        <a href="kategori">
                             <i class="bi bi-circle"></i><span>Kategori</span>
                         </a>
                     </li>
@@ -61,12 +61,12 @@
                 </a>
                 <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="/dompetmasuk">
+                        <a href="dompetmasuk">
                             <i class="bi bi-circle"></i><span>Dompet Masuk</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/dompetkeluar">
+                        <a href="dompetkeluar">
                             <i class="bi bi-circle"></i><span>Dompet Keluar</span>
                         </a>
                     </li>
@@ -81,7 +81,7 @@
                 </a>
                 <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="/laporantransaksi">
+                        <a href="laporantransaksi">
                             <i class="bi bi-circle"></i><span>Laporan Transaksi</span>
                         </a>
                     </li>
@@ -95,11 +95,17 @@
 
         <div class="pagetitle">
             <div class="d-flex ">
-                <h1 class="me-auto">Dompet <p style="font-size: 18px"></p>
-                </h1>
-                <a href="kategori"><button type="button" class="btn btn-primary">Kelola Kategori</button></a>
+                <h1 class="me-auto">Kategori</h1>
+                <a href="dompet"><button type="button" class="btn btn-primary">Kelola Dompet</button></a>
             </div>
 
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item">Forms</li>
+                    <li class="breadcrumb-item active">Elements</li>
+                </ol>
+            </nav>
         </div><!-- End Page Title -->
 
         <section class="section">
@@ -111,43 +117,50 @@
                             <h5 class="card-title">General Form Elements</h5>
 
                             <!-- General Form Elements -->
-                            <form>
+
+                            <form method="POST" action="{{ route('UpdateKategori') }}" enctype="multipart/form-data">
                                 @foreach ($datas as $data)
+                                    {{ csrf_field() }}
                                     <div class="row">
+                                        <input type="text" class="form-control" name="id" id="id"
+                                            value="{{ $data->ID }}" hidden>
                                         <div class="col">
-                                            <label class="mb-2">Nama</label>
-                                            <input type="text" class="form-control" value="{{ $data->Nama }}"
-                                                disabled>
+                                            <label class="mb-2" for="nama">Nama</label>
+                                            <input type="text" class="form-control" placeholder="Nama" name="nama"
+                                                id="nama" value="{{ $data->Nama }}" aria-label="Nama">
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <label class="mb-2 mt-2">Referensi</label>
-                                            <input type="text" class="form-control" value="{{ $data->Referensi }}"
-                                                disabled>
+                                    <div class="mb-3">
+                                        <label for="deskripsi" class="form-label mt-2">Deskripsi</label>
+                                        <div class="form-floating">
+                                            <textarea class="form-control" placeholder="Leave a comment here"
+                                                id="deskripsi" name="deskripsi"
+                                                style="height: 100px">{{ $data->Deskripsi }}</textarea>
+                                            <label for="floatingTextarea2">Deskripsi</label>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <label class="mb-2 mt-2">Deskripsi</label>
-                                            <input type="text" class="form-control" value="{{ $data->Deskripsi }}"
-                                                disabled>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <label class="mb-2 mt-2">Status</label>
-                                            @foreach ($datas2 as $data2)
-                                                @if ($data->Status_ID == $data2->ID)
-                                                    @if ($data2->Data_default == 1)
-                                                        <input type="text" class="form-control" value="Aktif"
-                                                            disabled>
-                                                    @elseif($data2->Data_default == 2)
-                                                        <input type="text" class="form-control" value="Tidak Aktif"
-                                                            disabled>
+                                    <div class="row mb-2">
+                                        <label class="mb-2">Select</label>
+                                        <div class="col-sm-3">
+                                            <select class="form-select" name="status"
+                                                aria-label="Default select example">
+                                                @foreach ($datas2 as $data2)
+                                                    @if ($data2->ID == $data->Status_ID)
+                                                        @if ($data2->Data_default == 1)
+                                                            <option value="1" selected>Aktif</option>
+                                                            <option value="2">Tidak Aktif</option>
+                                                        @elseif($data2->Data_default == 2)
+                                                            <option value="1">Aktif</option>
+                                                            <option value="2" selected>Tidak Aktif</option>
+                                                        @endif
                                                     @endif
-                                                @endif
-                                            @endforeach
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3 mt-4">
+                                        <div class="col-sm-10">
+                                            <button type="submit" class="btn btn-primary">Simpan</button>
                                         </div>
                                     </div>
                                 @endforeach

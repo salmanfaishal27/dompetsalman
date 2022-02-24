@@ -95,9 +95,9 @@
 
         <div class="pagetitle">
             <div class="d-flex ">
-                <h1 class="me-auto">Dompet <p style="font-size: 18px"></p>
+                <h1 class="me-auto">Kategori <p style="font-size: 18px"></p>
                 </h1>
-                <a href="kategori"><button type="button" class="btn btn-primary">Kelola Kategori</button></a>
+                <a href="/kategori"><button type="button" class="btn btn-primary">Kelola Kategori</button></a>
             </div>
 
         </div><!-- End Page Title -->
@@ -117,13 +117,6 @@
                                         <div class="col">
                                             <label class="mb-2">Nama</label>
                                             <input type="text" class="form-control" value="{{ $data->Nama }}"
-                                                disabled>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <label class="mb-2 mt-2">Referensi</label>
-                                            <input type="text" class="form-control" value="{{ $data->Referensi }}"
                                                 disabled>
                                         </div>
                                     </div>

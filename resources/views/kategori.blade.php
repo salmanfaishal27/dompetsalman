@@ -110,7 +110,8 @@
                     </div>
 
 
-                    <a href="kelolakategori"><button type="button" class="btn btn-primary">Buat Baru</button></a>
+                    <a href="{{ route('BuatBaru') }}"><button type="button" class="btn btn-primary">Buat
+                            Baru</button></a>
                 </div>
             </div>
         </div>
@@ -133,72 +134,53 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>pengeluaran</td>
-                                        <td>Kategori untuk pengeluaran</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-primary dropdown-toggle"
-                                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                                </button>
-                                                <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item" href="#">Dompet Utama</a></li>
-                                                    <li>
-                                                        <hr class="dropdown-divider">
-                                                    </li>
-                                                    <li><a class="dropdown-item" href="#">Detail</a></li>
-                                                    <li><a class="dropdown-item" href="#">Ubah</a></li>
-                                                    <li><a class="dropdown-item" href="#">Tidak Aktif</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Pemasukan</td>
-                                        <td>Kategori untuk Pemasukan</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-primary dropdown-toggle"
-                                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                                </button>
-                                                <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item" href="#">Dompet Utama</a></li>
-                                                    <li>
-                                                        <hr class="dropdown-divider">
-                                                    </li>
-                                                    <li><a class="dropdown-item" href="#">Detail</a></li>
-                                                    <li><a class="dropdown-item" href="#">Ubah</a></li>
-                                                    <li><a class="dropdown-item" href="#">Tidak Aktif</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>lain lain</td>
-                                        <td>kategori lain lain</td>
-                                        <td>Aktif</td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-primary dropdown-toggle"
-                                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                                </button>
-                                                <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item" href="#">Dompet Utama</a></li>
-                                                    <li>
-                                                        <hr class="dropdown-divider">
-                                                    </li>
-                                                    <li><a class="dropdown-item" href="#">Detail</a></li>
-                                                    <li><a class="dropdown-item" href="#">Ubah</a></li>
-                                                    <li><a class="dropdown-item" href="#">Tidak Aktif</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    @foreach ($datas as $data)
+                                        <tr>
+                                            <th scope="row">{{ $no++ }}</th>
+                                            <td>{{ $data->Nama }}</td>
+                                            <td>{{ $data->Deskripsi }}</td>
+                                            @foreach ($datas2 as $data2)
+                                                @if ($data->Status_ID == $data2->ID)
+                                                    @if ($data2->Data_default == 1)
+                                                        <td>Aktif</td>
+                                                    @elseif($data2->Data_default == 2)
+                                                        <td>Tidak Aktif</td>
+                                                    @else
+                                                        <td>Null</td>
+                                                    @endif
+                                                @endif
+                                            @endforeach
+                                            <td>
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-primary dropdown-toggle"
+                                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" href="#">{{ $data->Nama }}</a>
+                                                        </li>
+                                                        <li>
+                                                            <hr class="dropdown-divider">
+                                                        </li>
+                                                        <li><a class="dropdown-item"
+                                                                href="detailkategori/{{ $data->ID }}">Detail</a>
+                                                        </li>
+                                                        <li><a class="dropdown-item"
+                                                                href="ubahkategori/{{ $data->ID }}">Ubah</a></li>
+                                                        <li><a class="dropdown-item" href="#">
+                                                                @foreach ($datas2 as $data2)
+                                                                    @if ($data->Status_ID == $data2->ID)
+                                                                        @if ($data2->Data_default == 1)
+                                                                            Tidak Aktif
+                                                                        @elseif($data2->Data_default == 2)
+                                                                            Aktif
+                                                                        @endif
+                                                                    @endif
+                                                                @endforeach
+                                                            </a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                    @endforeach
                                 </tbody>
                             </table>
                             <!-- End Table with stripped rows -->
