@@ -171,7 +171,8 @@
                                                         </li>
                                                         <li><a class="dropdown-item"
                                                                 href="detail/{{ $data->ID }}">Detail</a></li>
-                                                        <li><a class="dropdown-item" href="#">Ubah</a></li>
+                                                        <li><a class="dropdown-item"
+                                                                href="/ubahdompet/{{ $data->ID }}">Ubah</a></li>
                                                         <li><a class="dropdown-item" href="#">
                                                                 @foreach ($datas2 as $data2)
                                                                     @if ($data->Status_ID == $data2->ID)

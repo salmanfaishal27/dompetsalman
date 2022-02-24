@@ -56,6 +56,29 @@ class DompetController extends Controller
         //
         return view('keloladompet');
     }
+    public function updatedompet($id)
+    {
+        $datas = DB::table('dompet')->where('ID',$id)->get();
+        $datas2 = DB::table('dompet_status')->get();
+        return view('ubahdompet',['datas' => $datas,'datas2' => $datas2]);
+    }
+    public function ubahdompet(Request $request)
+    {
+        DB::table('dompet')->where('ID',$request->id)->update([
+            'Nama' => $request->nama,
+            'Referensi' => $request->referensi,
+            'Deskripsi' => $request->deskripsi,
+            'Status_ID' => $request->id
+        ]);
+        // insert data ke table dompet_status
+        DB::table('dompet_status')->where('ID',$request->id)->update([
+            'ID' => $request->id,
+            'Nama' => $request->nama,
+            'Data_default' => $request->status
+        ]);
+        // mengalihkan halaman ke halaman users
+        return redirect('dompet');
+    }
 
 
     /**

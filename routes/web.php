@@ -13,10 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
 
+
+Route::get('/', 'DompetController@index');
 Route::get('/dompet', 'DompetController@index');
 
 Route::get('/kategori', function(){
@@ -33,6 +32,9 @@ Route::get('/laporantransaksi', function(){
 });
 Route::get('/keloladompet', 'DompetController@createdompet')->name('BuatBaru');
 Route::post('/keloladompet/insert', 'DompetController@insert')->name('InsertDompet');
+
+Route::get('/ubahdompet/{id}', 'DompetController@updatedompet');
+Route::post('/ubahdompet/update', 'DompetController@ubahdompet')->name('UpdateDompet');
 
 Route::get('/kelolakategori', function(){
     return view('kelolakategori');
