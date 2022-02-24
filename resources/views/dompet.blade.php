@@ -109,8 +109,8 @@
                         </ul>
                     </div>
 
-                    <button type="button" class="btn btn-primary"><a href="keloladompet" style="color: white">Buat
-                            Baru</a></button>
+                    <a href="{{ route('BuatBaru') }}"><button type="button" class="btn btn-primary">Buat
+                            Baru</button></a>
                 </div>
             </div>
             <nav>

@@ -31,9 +31,9 @@ Route::get('/dompetkeluar', function(){
 Route::get('/laporantransaksi', function(){
     return view ('laporantransaksi');
 });
-Route::get('/keloladompet', function(){
-    return view('keloladompet');
-});
+Route::get('/keloladompet', 'DompetController@createdompet')->name('BuatBaru');
+Route::post('/keloladompet/insert', 'DompetController@insert')->name('InsertDompet');
+
 Route::get('/kelolakategori', function(){
     return view('kelolakategori');
 });

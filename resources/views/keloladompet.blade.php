@@ -118,30 +118,33 @@
                             <h5 class="card-title">General Form Elements</h5>
 
                             <!-- General Form Elements -->
-                            <form>
+                            <form method="POST" action="{{ route('InsertDompet') }}" enctype="multipart/form-data">
+                                {{ csrf_field() }}
                                 <div class="row">
                                     <div class="col">
-                                        <label class="mb-2">Nama</label>
-                                        <input type="text" class="form-control" placeholder="Nama" aria-label="Nama">
+                                        <label class="mb-2" for="nama">Nama</label>
+                                        <input type="text" class="form-control" placeholder="Nama" name="nama"
+                                            id="nama" aria-label="Nama">
                                     </div>
                                     <div class="col">
-                                        <label class="mb-2">Referensi</label>
+                                        <label class="mb-2" for="referensi">Referensi</label>
                                         <input type="text" class="form-control" placeholder="Referensi"
-                                            aria-label="Referensi">
+                                            name="referensi" id="referensi" aria-label="Referensi">
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="floa" class="form-label mt-2">Deskripsi</label>
+                                    <label for="deskripsi" class="form-label mt-2">Deskripsi</label>
                                     <div class="form-floating">
                                         <textarea class="form-control" placeholder="Leave a comment here"
-                                            id="floatingTextarea2" style="height: 100px"></textarea>
+                                            id="deskripsi" name="deskripsi" style="height: 100px"></textarea>
                                         <label for="floatingTextarea2">Deskripsi</label>
                                     </div>
                                 </div>
                                 <div class="row mb-2">
                                     <label class="mb-2">Select</label>
                                     <div class="col-sm-3">
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select class="form-select" name="status"
+                                            aria-label="Default select example">
                                             <option selected>Status</option>
                                             <option value="1">Aktif</option>
                                             <option value="2">Tidak Aktif</option>

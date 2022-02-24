@@ -33,6 +33,29 @@ class DompetController extends Controller
         $no = 1;
         return view('detail',['datas' => $datas,'datas2' => $datas2,'no' => $no]);
     }
+    public function insert(Request $request){
+        $data = DB::table('dompet')->count();
+		// insert data ke table dompet
+        DB::table('dompet')->insert([
+            'Nama' => $request->nama,
+            'Referensi' => $request->referensi,
+            'Deskripsi' => $request->deskripsi,
+            'Status_ID' => $data+1
+        ]);
+        // insert data ke table dompet_status
+        DB::table('dompet_status')->insert([
+            'ID' => $data+1,
+            'Nama' => $request->nama,
+            'Data_default' => $request->status
+        ]);
+        // mengalihkan halaman ke halaman users
+        return redirect('dompet');
+    }
+    public function createdompet()
+    {
+        //
+        return view('keloladompet');
+    }
 
 
     /**
